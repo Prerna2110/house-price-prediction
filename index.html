@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f3f5f6; }
+        .container { width: 50%; margin: auto; background: rgb(200, 230, 236); padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; }
+        input, select { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; }
+        button { background-color: #d2b3e9; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏠 House Price Prediction</h1>
+        <form action="/predict" method="post">
+            <input type="number" step="any" name="longitude" placeholder="Longitude (e.g. -122.23)" required>
+            <input type="number" step="any" name="latitude" placeholder="Latitude (e.g. 37.88)" required>
+            <input type="number" step="any" name="housing_median_age" placeholder="Housing Median Age" required>
+            <input type="number" step="any" name="total_rooms" placeholder="Total Rooms" required>
+            <input type="number" step="any" name="total_bedrooms" placeholder="Total Bedrooms" required>
+            <input type="number" step="any" name="population" placeholder="Population" required>
+            <input type="number" step="any" name="households" placeholder="Households" required>
+            <input type="number" step="any" name="median_income" placeholder="Median Income" required>
+            
+            <select name="ocean_proximity" required>
+                <option value="NEAR BAY">NEAR BAY</option>
+                <option value="INLAND">INLAND</option>
+                <option value="<1H OCEAN"><1H OCEAN</option>
+                <option value="NEAR OCEAN">NEAR OCEAN</option>
+                <option value="ISLAND">ISLAND</option>
+            </select>
+            <button type="submit">Predict Price</button>
+        </form>
+        <br>
+        <h3>{{ prediction_text }}</h3>
+    </div>
+</body>
+</html>
